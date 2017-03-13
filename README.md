@@ -4,4 +4,4 @@ Implementation of "[Knowing When to Look: Adaptive Attention via A Visual Sentin
 
 
 
-[License](https://github.com/jiasenlu/AdaptiveAttention/edit/master/LICENSE.md)
+[License](https://github.com/jiasenlu/AdaptiveAttention/edit/master/LICENCE.md)
