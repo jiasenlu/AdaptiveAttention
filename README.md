@@ -5,7 +5,7 @@ Implementation of "[Knowing When to Look: Adaptive Attention via A Visual Sentin
 
 To train the model require GPU with 12GB Memory, if you do not have GPU, you can directly use the pretrained model for inference. 
 
-This code is written in Lua and requires [Torch](http://torch.ch/). The preprocssinng code is in Python, and you need to install [NLTK](http://www.nltk.org/) if you want to use NLTK to tokenize the question.
+This code is written in Lua and requires [Torch](http://torch.ch/). The preprocssinng code is in Python, and you need to install [NLTK](http://www.nltk.org/) if you want to use NLTK to tokenize the caption.
 
 You also need to install the following package in order to sucessfully run the code.
 
