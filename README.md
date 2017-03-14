@@ -31,14 +31,14 @@ Download [COCO](http://mscoco.org/) and Flickr30k image dataset, extract the ima
 ### Reference
 
 If you use this code as part of any published research, please acknowledge the following paper
-
+```
 @misc{Lu2017Adaptive,
 author = {Lu, Jiasen and Xiong, Caiming and Parikh, Devi and Richard, Socher},
 title = {Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning},
 journal = {CVPR},
 year = {2017}
 }
-
+```
 ### License
 [License](https://github.com/jiasenlu/AdaptiveAttention/edit/master/LICENCE.md)
 
