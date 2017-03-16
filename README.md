@@ -1,6 +1,8 @@
 # AdaptiveAttention
 Implementation of "[Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning](https://arxiv.org/pdf/1612.01887.pdf)"
 
+![teaser results](https://raw.github.com/jiasenlu/AdaptiveAttention/master/visulization/demo.png)
+
 ### Requirements
 
 To train the model require GPU with 12GB Memory, if you do not have GPU, you can directly use the pretrained model for inference. 
@@ -14,14 +16,13 @@ You also need to install the following package in order to sucessfully run the c
 - [lua-cjson](http://www.kyne.com.au/~mark/software/lua-cjson.php)
 - [iTorch](https://github.com/facebook/iTorch)
 
-### Evaluation
-##### I want to captioning an image. 
+### I just want to captioning an image. 
 
 
-##### I want to visualize the attention and sentinel. 
+### I also want to visualize the cool attention and sentinel. 
 
 
-
+### I want to evaluate the pretrained model using COCO evaluation tool. 
 ##### Pretrained Model
 The pre-trained model for COCO can be download [here](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/model/COCO/).
 The pre-trained model for Flickr30K can be download [here](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/model/Flickr30k/). 
@@ -29,15 +30,16 @@ The pre-trained model for Flickr30K can be download [here](https://filebox.ece.v
 ##### Vocabulary File
 Download the corresponding Vocabulary file for [COCO](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/data/COCO/) and [Flickr30k](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/data/Flickr30k/) 
 
-### Training a new model
 ##### Download Dataset
 The first thing you need to do is to download the data and do some preprocessing. Head over to the `data/` folder and run the correspodning ipython script. It will download, preprocess and generate coco_raw.json. 
 
 Download [COCO](http://mscoco.org/) and Flickr30k image dataset, extract the image and put under somewhere. 
  
 
-### Reference
+### I want to training a new model
 
+
+### Reference
 If you use this code as part of any published research, please acknowledge the following paper
 ```
 @misc{Lu2017Adaptive,
