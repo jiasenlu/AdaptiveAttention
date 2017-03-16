@@ -14,23 +14,26 @@ You also need to install the following package in order to sucessfully run the c
 - [lua-cjson](http://www.kyne.com.au/~mark/software/lua-cjson.php)
 - [iTorch](https://github.com/facebook/iTorch)
 
-
 ### Evaluation
+##### I want to captioning an image. 
 
+
+##### I want to visualize the attention and sentinel. 
+
+
+
+##### Pretrained Model
+The pre-trained model for COCO can be download [here](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/model/COCO/).
+The pre-trained model for Flickr30K can be download [here](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/model/Flickr30k/). 
+
+##### Vocabulary File
+Download the corresponding Vocabulary file for [COCO](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/data/COCO/) and [Flickr30k](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/data/Flickr30k/) 
+
+### Training a new model
 ##### Download Dataset
 The first thing you need to do is to download the data and do some preprocessing. Head over to the `data/` folder and run the correspodning ipython script. It will download, preprocess and generate coco_raw.json. 
 
 Download [COCO](http://mscoco.org/) and Flickr30k image dataset, extract the image and put under somewhere. 
-
-##### Pretrained Model
-For evaluation, you can directly download the pretrained model. 
-
-The pre-trained model for COCO can be download [here]().
-The pre-trained model for Flickr30K can be download [here](). 
-
-### Training
-
-### Attention Visulization.
  
 
 ### Reference
@@ -49,6 +52,6 @@ year = {2017}
 
 ### Acknowledgement 
 
-Thanks Andrew Karpathy and his [NeuralTalk2](https://github.com/karpathy/neuraltalk2). 
+This code is developed based on [NeuralTalk2](https://github.com/karpathy/neuraltalk2). 
 
 Thanks [Torch](http://torch.ch/) team and Facebook [ResNet](https://github.com/facebook/fb.resnet.torch) implementation. 
