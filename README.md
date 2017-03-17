@@ -1,7 +1,7 @@
 # AdaptiveAttention
 Implementation of "[Knowing When to Look: Adaptive Attention via A Visual Sentinel for Image Captioning](https://arxiv.org/pdf/1612.01887.pdf)"
 
-![teaser results](https://raw.github.com/jiasenlu/AdaptiveAttention/master/visulization/demo.png)
+![teaser results](https://raw.github.com/jiasenlu/AdaptiveAttention/master/demo/fig1.png)
 
 ### Requirements
 
@@ -37,6 +37,13 @@ Download [COCO](http://mscoco.org/) and Flickr30k image dataset, extract the ima
  
 
 ### I want to training a new model
+
+
+### More Result about spatial attention and visual sentinel
+
+![teaser results](https://raw.github.com/jiasenlu/AdaptiveAttention/master/demo/fig2.png)
+
+![teaser results](https://raw.github.com/jiasenlu/AdaptiveAttention/master/demo/fig3.png)
 
 
 ### Reference
