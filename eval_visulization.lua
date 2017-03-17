@@ -2,7 +2,7 @@ require 'torch'
 require 'nn'
 require 'nngraph'
 -- local imports
-require 'misc.DataLoaderResNetEval'
+require 'visu.DataLoaderResNetEval'
 local utils = require 'misc.utils'
 require 'visu.LanguageModel_visu'
 local net_utils = require 'misc.net_utils'
