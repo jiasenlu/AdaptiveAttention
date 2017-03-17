@@ -45,7 +45,8 @@ Download [COCO](http://mscoco.org/) and Flickr30k image dataset, extract the ima
 
 ![teaser results](https://raw.github.com/jiasenlu/AdaptiveAttention/master/demo/fig3.png)
 
-
+For more visualization result, you can visit [here](https://filebox.ece.vt.edu/~jiasenlu/demo/caption_atten/demo.html)
+(it will load more than 1000 image and their result...)
 ### Reference
 If you use this code as part of any published research, please acknowledge the following paper
 ```
