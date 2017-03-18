@@ -43,7 +43,7 @@ cmd:option('-checkpoint_path', 'save/test1', 'folder to save checkpoints into (e
 cmd:option('-rnn_size',512,'size of the rnn in number of hidden nodes in each layer')
 cmd:option('-num_layers',1,'the encoding size of each token in the vocabulary, and the image.')
 cmd:option('-input_encoding_size',512,'the encoding size of each token in the vocabulary, and the image.')
-cmd:option('-batch_size',15,'what is the batch size in number of images per batch? (there will be x seq_per_img sentences)')
+cmd:option('-batch_size',20,'what is the batch size in number of images per batch? (there will be x seq_per_img sentences)')
 
 -- training setting
 cmd:option('-nEpochs', 50, 'Max number of training epoch')
