@@ -46,8 +46,8 @@ cmd:option('-input_encoding_size',512,'the encoding size of each token in the vo
 cmd:option('-batch_size',20,'what is the batch size in number of images per batch? (there will be x seq_per_img sentences)')
 
 -- training setting
-cmd:option('-nEpochs', 50, 'Max number of training epoch')
-cmd:option('-finetune_cnn_after', 20, 'After what epoch do we start finetuning the CNN? (-1 = disable; never finetune, 0 = finetune from start)')
+cmd:option('-nEpochs', 20, 'Max number of training epoch')
+cmd:option('-finetune_cnn_after', 21, 'After what epoch do we start finetuning the CNN? (-1 = disable; never finetune, 0 = finetune from start)')
 
 --actuall batch size = gpu_num * batch_size
 
@@ -77,7 +77,7 @@ cmd:option('-finetune_start_layer', 6, 'finetune start layer. [1-10]')
 
 -- Evaluation/Checkpointing
 cmd:option('-val_images_use', -1, 'how many images to use when periodically evaluating the validation loss? (-1 = all)')
-cmd:option('-save_checkpoint_every', 3, 'how often to save a model checkpoint?')
+cmd:option('-save_checkpoint_every', 5, 'how often to save a model checkpoint?')
 cmd:option('-language_eval', 1, 'Evaluate language as well (1 = yes, 0 = no)? BLEU/CIDEr/METEOR/ROUGE_L? requires coco-caption code from Github.')
 
 -- misc
