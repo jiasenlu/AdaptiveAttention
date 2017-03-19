@@ -307,6 +307,9 @@ local function Train(epoch)
     grad_params:clamp(-opt.grad_clip, opt.grad_clip)
     
     if epoch >= opt.finetune_cnn_after and opt.finetune_cnn_after ~= -1 then
+      net_utils.setBNGradient0(protos.transform_cnn_conv)
+      net_utils.setBNGradient0(protos.cnn_fc)
+      net_utils.setBNGradient0(protos.cnn_conv)
       -- backprop the CNN, but only if we are finetuning
       dconv_t = protos.expanderConv:backward(feat_conv_t, dexpanded_conv)
       dfc = protos.expanderFC:backward(feats_fc, dexpanded_fc)

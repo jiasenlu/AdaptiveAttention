@@ -15,8 +15,8 @@ function M.ColorNormalize(meanstd)
    return function(img)
       img = img:clone()
       for i=1,3 do
-         img[i]:add(-meanstd.mean[i])
-         img[i]:div(meanstd.std[i])
+         img[{{},{i},{},{}}]:add(-meanstd.mean[i])
+         img[{{},{i},{},{}}]:div(meanstd.std[i])
       end
       return img
    end
