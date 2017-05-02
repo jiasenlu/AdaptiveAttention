@@ -29,16 +29,6 @@ cmd:option('-start_from', '', 'path to a model checkpoint to initialize model we
 cmd:option('-checkpoint_path', 'save/', 'folder to save checkpoints into (empty = this folder)')
 cmd:option('-startEpoch', 1, 'Max number of training epoch')
 
---[[
-cmd:option('-dataset','flickr30k','')
-cmd:option('-input_h5','/data/flickr30k/cocotalk.h5','path to the h5file containing the preprocessed dataset')
-cmd:option('-input_json','/data/flickr30k/cocotalk.json','path to the json file containing additional info and vocab')
-cmd:option('-cnn_model','../image_model/resnet-152.t7','path to CNN model file containing the weights, Caffe format. Note this MUST be a VGGNet-16 right now.')
-
-cmd:option('-start_from', '', 'path to a model checkpoint to initialize model weights from. Empty = don\'t')
-cmd:option('-checkpoint_path', 'save/test1', 'folder to save checkpoints into (empty = this folder)')
-]]--
-
 -- Model settings
 cmd:option('-rnn_size',512,'size of the rnn in number of hidden nodes in each layer')
 cmd:option('-num_layers',1,'the encoding size of each token in the vocabulary, and the image.')
@@ -47,7 +37,7 @@ cmd:option('-batch_size',20,'what is the batch size in number of images per batc
 
 -- training setting
 cmd:option('-nEpochs', 20, 'Max number of training epoch')
-cmd:option('-finetune_cnn_after', 21, 'After what epoch do we start finetuning the CNN? (-1 = disable; never finetune, 0 = finetune from start)')
+cmd:option('-finetune_cnn_after', 20, 'After what epoch do we start finetuning the CNN? (-1 = disable; never finetune, 0 = finetune from start)')
 
 --actuall batch size = gpu_num * batch_size
 
@@ -63,6 +53,7 @@ cmd:option('-drop_prob_lm', 0.5, 'strength of dropout in the Language Model RNN'
 cmd:option('-optim','adam','what update to use? rmsprop|sgd|sgdmom|adagrad|adam')
 cmd:option('-learning_rate',4e-4,'learning rate')
 cmd:option('-learning_rate_decay_start', 20, 'at what iteration to start decaying learning rate? (-1 = dont)')
+cmd:option('-learning_rate_decay_every', 50, 'how many epoch the learning rate x 0.5')
 cmd:option('-optim_alpha',0.8,'alpha for adagrad/rmsprop/momentum/adam')
 cmd:option('-optim_beta',0.999,'beta used for adam')
 cmd:option('-optim_epsilon',1e-8,'epsilon that goes into denominator for smoothing')
@@ -77,7 +68,7 @@ cmd:option('-finetune_start_layer', 6, 'finetune start layer. [1-10]')
 
 -- Evaluation/Checkpointing
 cmd:option('-val_images_use', -1, 'how many images to use when periodically evaluating the validation loss? (-1 = all)')
-cmd:option('-save_checkpoint_every', 5, 'how often to save a model checkpoint?')
+cmd:option('-save_checkpoint_every', 4, 'how often to save a model checkpoint?')
 cmd:option('-language_eval', 1, 'Evaluate language as well (1 = yes, 0 = no)? BLEU/CIDEr/METEOR/ROUGE_L? requires coco-caption code from Github.')
 
 -- misc
@@ -376,16 +367,12 @@ local timer = torch.Timer()
 for epoch = startEpoch, opt.nEpochs do
 
   -- doing the learning rate decay
-  --[[
   if epoch > opt.learning_rate_decay_start and opt.learning_rate_decay_start >= 0 then
     local frac = (epoch - opt.learning_rate_decay_start) / opt.learning_rate_decay_every
     local decay_factor = math.pow(0.5, frac)
     learning_rate = learning_rate * decay_factor -- set the decayed rate
   end
-  ]]--
-  if epoch > opt.learning_rate_decay_start then
-    learning_rate = 1e-4
-  end
+
 
   local train_loss = Train(epoch)
   print('training loss for # ' .. epoch .. ' : ' .. train_loss)
