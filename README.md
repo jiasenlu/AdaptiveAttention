@@ -16,13 +16,6 @@ You also need to install the following package in order to sucessfully run the c
 - [lua-cjson](http://www.kyne.com.au/~mark/software/lua-cjson.php)
 - [iTorch](https://github.com/facebook/iTorch)
 
-### I just want to captioning an image. 
-
-
-### I also want to visualize the cool attention and sentinel. 
-
-
-### I want to evaluate the pretrained model using COCO evaluation tool. 
 ##### Pretrained Model
 The pre-trained model for COCO can be download [here](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/model/COCO/).
 The pre-trained model for Flickr30K can be download [here](https://filebox.ece.vt.edu/~jiasenlu/codeRelease/AdaptiveAttention/model/Flickr30k/). 
@@ -36,7 +29,15 @@ The first thing you need to do is to download the data and do some preprocessing
 Download [COCO](http://mscoco.org/) and Flickr30k image dataset, extract the image and put under somewhere. 
  
 
-### I want to training a new model
+### training a new model on MS COCO
+First train the Language model without finetune the image. 
+```
+th train.lua -batch_size 20 
+```
+When finetune the CNN, load the saved model and train for another 15~20 epoch. 
+```
+th train.lua -batch_size 16 -startEpoch 21 -start_from 'model_id1_20.t7'
+```
 
 
 ### More Result about spatial attention and visual sentinel
