@@ -61,8 +61,6 @@ journal = {CVPR},
 year = {2017}
 }
 ```
-### License
-[License](https://github.com/jiasenlu/AdaptiveAttention/edit/master/LICENCE.md)
 
 ### Acknowledgement 
 
