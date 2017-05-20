@@ -69,3 +69,12 @@ year = {2017}
 This code is developed based on [NeuralTalk2](https://github.com/karpathy/neuraltalk2). 
 
 Thanks [Torch](http://torch.ch/) team and Facebook [ResNet](https://github.com/facebook/fb.resnet.torch) implementation. 
+
+### License
+
+BSD 3-Clause License
+
+### Patent (Pending)
+
+IMAGE CAPTIONING USING ADAPTAVICE ATTENTION
+
