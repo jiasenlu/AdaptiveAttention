@@ -48,9 +48,7 @@ th train.lua -batch_size 16 -startEpoch 21 -start_from 'model_id1_20.t7'
 
 For more visualization result, you can visit [here](https://filebox.ece.vt.edu/~jiasenlu/demo/caption_atten/demo.html)
 (it will load more than 1000 image and their result...)
-### Contributer
-Jiasen Lu
-Caiming Xiong
+
 ### Reference
 If you use this code as part of any published research, please acknowledge the following paper
 ```
@@ -72,7 +70,5 @@ Thanks [Torch](http://torch.ch/) team and Facebook [ResNet](https://github.com/f
 
 BSD 3-Clause License
 
-### Patent (Pending)
 
-IMAGE CAPTIONING USING ADAPTAVICE ATTENTION
 
