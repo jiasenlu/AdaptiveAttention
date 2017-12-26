@@ -34,7 +34,7 @@ function attention.attention(input_size, rnn_size, output_size, dropout)
   local hA = nn.Tanh()(nn.CAddTable()({img_all_embed, txt_replicate}))
   if dropout > 0 then hA = nn.Dropout(dropout)(hA) end
   local hAflat = nn.Linear(input_size,1)(nn.View(input_size):setNumInputDims(2)(hA))  
-  local PI = nn.SoftMax()(nn.View(50):setNumInputDims(2)(hAflat))
+  local PI = nn.SoftMax()(nn.View(-1, 50):setNumInputDims(2)(hAflat))
 
   local probs3dim = nn.View(1,-1):setNumInputDims(1)(PI)
   local visAtt = nn.MM(false, false)({probs3dim, img_all})

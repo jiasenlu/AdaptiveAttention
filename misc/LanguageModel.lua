@@ -142,7 +142,7 @@ function layer:sample(inputs, opt)
   local state = self.init_state
   
   local img_input = {conv, fc}
-  local conv_feat, conv_feat_embed, fc_embed = unpack(self.img_embedding:forward(img_input))
+  local conv_feat, conv_feat_embed, fc_embed = table.unpack(self.img_embedding:forward(img_input))
 
   -- we will write output predictions into tensor seq
   local seq = torch.LongTensor(self.seq_length, batch_size):zero()
@@ -183,7 +183,7 @@ function layer:sample(inputs, opt)
       seqLogprobs[t-1] = sampleLogprobs:view(-1):float() -- and also their log likelihoods
     end
 
-    local inputs = {xt,fc_embed, unpack(state)}
+    local inputs = {xt,fc_embed, table.unpack(state)}
     local out = self.core:forward(inputs)
     state = {}
     for i=1,self.num_state do table.insert(state, out[i]) end
@@ -213,7 +213,7 @@ function layer:sample_beam(inputs, opt)
   assert(beam_size <= self.vocab_size+1, 'lets assume this for now, otherwise this corner case causes a few headaches down the road. can be dealt with in future if needed')
 
   local img_input = {conv, fc}
-  local conv_feat, conv_feat_embed, fc_embed = unpack(self.img_embedding:forward(img_input))
+  local conv_feat, conv_feat_embed, fc_embed = table.unpack(self.img_embedding:forward(img_input))
 
   local seq = torch.LongTensor(self.seq_length, batch_size):zero()
   local seqLogprobs = torch.FloatTensor(self.seq_length, batch_size)
@@ -310,7 +310,7 @@ function layer:sample_beam(inputs, opt)
 
       if new_state then state = new_state end -- swap rnn state, if we reassinged beams
 
-      local inputs = {xt,imgk,unpack(state)}
+      local inputs = {xt, imgk, table.unpack(state)}
       local out = self.core:forward(inputs)
       state = {}
       for i=1,self.num_state do table.insert(state, out[i]) end
@@ -345,7 +345,7 @@ function layer:updateOutput(input)
   self.output:resize(self.seq_length+1, batch_size, self.vocab_size+1):zero()
 
   self.img_input = {conv, fc}
-  self.conv_feat, self.conv_feat_embed, self.fc_embed = unpack(self.img_embedding:forward(self.img_input))
+  self.conv_feat, self.conv_feat_embed, self.fc_embed = table.unpack(self.img_embedding:forward(self.img_input))
 
   self.state = {[0] = self.init_state}
   self.inputs = {}
@@ -377,7 +377,7 @@ function layer:updateOutput(input)
 
     if not can_skip then
       -- construct the inputs
-      self.inputs[t] = {xt, self.fc_embed, unpack(self.state[t-1])}
+      self.inputs[t] = {xt, self.fc_embed, table.unpack(self.state[t-1])}
       -- forward the network
       local out = self.clones[t]:forward(self.inputs[t])
       -- insert the hidden state
@@ -430,7 +430,7 @@ function layer:updateGradInput(input, gradOutput)
   end
 
   -- backprob to the visual features.
-  local dimgs_cnn, dfc_cnn = unpack(self.img_embedding:backward(self.img_input, {dconv, dconv_embed, dfc}))
+  local dimgs_cnn, dfc_cnn = table.unpack(self.img_embedding:backward(self.img_input, {dconv, dconv_embed, dfc}))
 
   self.gradInput = {dimgs_cnn, dfc_cnn}
   return self.gradInput
